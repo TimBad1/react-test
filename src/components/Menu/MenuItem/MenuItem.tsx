@@ -4,10 +4,10 @@ import './menuitem.sass';
 interface IMenuItem {
   icon: React.ReactElement;
   name: string;
-  items?: IMenuItem
+  // items?: IMenuItem
 }
 
-export function MenuItem({ icon, name, items}: IMenuItem) {
+export function MenuItem({ icon, name }: IMenuItem) {
   return (
     <>
       {icon}

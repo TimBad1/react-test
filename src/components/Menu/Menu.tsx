@@ -9,16 +9,24 @@ import IconSearch from '../Icons/IconSearch';
 import IconTable from '../Icons/IconTable';
 import IconWidget from '../Icons/IconWidget';
 import './menu.sass';
-import { MenuItem } from './MenuItem';
+import { MenuList } from './MenuList';
 
-const menuList = [
+interface IMenuList {
+    icon: React.ReactElement;
+    id: number;
+    name: string;
+    menuList?: any;
+  }
+
+const menuList: Array <IMenuList> = [
   { id: 1, name: 'Главная', icon: <IconMenuItemMain />, },
   { id: 2, name: 'Поиск адресов', icon: <IconSearch />, },
   { id: 3, name: 'Таблицы', icon: <IconTable />, },
   { id: 4, name: 'Календарь', icon: <IconCalendar />, },
   { id: 5, name: 'Карты', icon: <IconMap />, },
   { id: 6, name: 'Виджеты', icon: <IconWidget />, },
-  { id: 7, name: 'Настройки', icon: <IconOptions />, items: [
+  { id: 7, name: 'Настройки', icon: <IconOptions />, 
+  menuList: [
     { id: 1, name: 'Настройки профиля', icon: <IconOptionsProfile />,  },
     { id: 2, name: 'Управление финансами', icon: <IconOptionsFinance />, },
   ]},
@@ -30,13 +38,8 @@ export function Menu() {
       <h2 className="menu__title">
         Меню
       </h2>
-      <ul className="menu__list">
-        {menuList.map(item => (
-          <li className="menu__item" key={item.id}>
-            <MenuItem name={item.name} icon={item.icon} items={item.items}/>
-          </li>
-        ))}
-      </ul>
+      
+      <MenuList menuList={menuList}/>
     </div>
   );
 }
