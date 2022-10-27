@@ -6,7 +6,8 @@ interface IMenuItem {
   icon: React.ReactElement;
   id: number;
   name: string;
-  menuList?: any;
+  href?: string;
+  menuList?: IMenuList;
 }
 
 interface IMenuList {
@@ -14,22 +15,19 @@ interface IMenuList {
 }
 
 export function MenuList(menuList: IMenuList) {
-  // console.log(menuList);
+  let isOpen = false;
   return (
-    <ul className="menu__list">
-    {menuList.menuList.map((item: IMenuItem) => {
-      console.log(item.menuList);
-      return (<li className="menu__item" key={item.id}>
-        <MenuItem 
-          name={item.name} 
-          icon={item.icon} 
-        />
-        {item.menuList && 
-        <MenuList menuList={item.menuList}/>
-        }
-      </li>) 
-    }      
-    )}
-  </ul>
-  );
+    <ul className={`menu__list ${isOpen ? 'active' : ''}`}> 
+    {menuList.menuList.map((item: IMenuItem) => <MenuItem 
+        key={item.id}
+        isOpen={isOpen}
+        name={item.name} 
+        icon={item.icon} 
+        menuList={item.menuList}
+        href={item.href}
+        button={item.menuList ? true : false} />
+      )
+    }
+    </ul>
+  )
 }

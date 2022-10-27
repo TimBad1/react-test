@@ -10,7 +10,7 @@ export function Header() {
     <header className="header">
       <HeaderBlock 
         imageSrc={<IconLogo />}
-        text={'wrench crm'}
+        text={'Wrench CRM'}
       />
       <HeaderBlock
         imageSrc={<IconUser />}

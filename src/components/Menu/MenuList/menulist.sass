@@ -1,0 +1,45 @@
+@import '../../../index.sass'
+    
+.menu__list
+	padding-right: 20px
+.menu__item 
+	padding-top: 20px
+	padding-bottom: 20px
+	padding-left: 30px
+	list-style: none
+	cursor: pointer
+
+	div
+		display: flex
+		align-items: center
+		border-radius: 4px
+
+		&:hover
+			background-color: darken(#fff, 4%)
+			box-shadow: 0 0 10px 10px darken(#fff, 4%)
+	
+	svg
+		margin-right: 20px
+		height: 32px
+	&-drop 
+		width: 20px
+		height: 20px
+		position: relative
+		margin-left: auto
+		padding: 0
+		border: 0
+		background-color: transparent
+
+		&:before
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			border-left: 6px solid transparent
+			border-right: 6px solid transparent
+			border-top: 12px solid #a8a8a8
+			transform: translate(-50%, -50%) rotate(0)
+	
+		&.active:before 
+			transform: translate(-50%, -50%) rotate(180deg)
+		
