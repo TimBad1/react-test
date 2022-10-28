@@ -11,7 +11,6 @@ export function Pages() {
         <Route path='/' element={<Home />} />
         <Route path='/address' element={<Address />} />
       </Routes>
-      <Pages />
     </div>
   );
 }

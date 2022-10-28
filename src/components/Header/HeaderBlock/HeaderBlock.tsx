@@ -8,7 +8,7 @@ interface IHeaderBlockProps {
 
 export function HeaderBlock({imageSrc, text} : IHeaderBlockProps) {
   return (
-    <div className='header-block'>
+    <div className='header__block'>
       {imageSrc}
       <span>
         {text}

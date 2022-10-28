@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IconCalendar from '../Icons/IconCalendar';
 import IconExit from '../Icons/IconExit';
 import IconMap from '../Icons/IconMap';
@@ -35,13 +35,15 @@ const menuList: Array <IMenuList> = [
 ]
 
 export function Menu() {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+ 
   return (
-    <div className="menu">
-      <h2 className="menu__title">
-        Меню
+    <div className={`menu ${isOpenMenu ? 'active' : ''}`} >
+      <h2 className="menu__title" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+        {(isOpenMenu && window.innerWidth <= 768 ) ? 'Закрыть' : 'Меню'}
       </h2>
       
-      <MenuList menuList={menuList}/>
+      <MenuList menuList={menuList} />
       <MenuList menuList={[{ id: 10, name: 'Выход', icon: <IconExit />, }]} />
     </div>
 

@@ -13,12 +13,11 @@ interface IMenuItem {
 }
 
 export function MenuItem({ icon, name, button, menuList, href, isOpen }: IMenuItem) {
-  console.log(menuList);
   const [isOpenMenu, setisOpenMenu] = useState(isOpen);
 
   return (
-    <Link to={href ? href : '*'}>
-      <li className={`menu__item ${isOpenMenu ? 'active' : ''}`}>
+    <li className={`menu__item ${isOpenMenu ? 'active' : ''}`}>
+      <Link to={href ? href : '#'} className='menu__item-link'>
         <div onClick={() => setisOpenMenu(!isOpenMenu)} >
           {icon}
           <p>{name}</p>
@@ -29,9 +28,8 @@ export function MenuItem({ icon, name, button, menuList, href, isOpen }: IMenuIt
         {menuList && isOpenMenu &&
           <MenuList menuList={menuList}/>
           }
-      </li>
-    </Link>
-    
+      </Link>
+    </li>
   );
 }
 

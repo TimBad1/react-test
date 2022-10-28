@@ -2,10 +2,15 @@
 .header 
     @extend %container
     @extend %padding
+    padding-bottom: 18px
     background-color: $colorBlue
     color: $colorWhite
 
     display: flex
     justify-content: space-between
     box-sizing: border-box
-    
+
+    &__block
+        &:not(:last-child)
+            margin-right: 20px
+            
